@@ -1,20 +1,20 @@
 package com.steave.tests;
 
 import com.steave.driver.Driver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
 public class BaseForAll{
 
-    protected BaseForAll(){ }
-
-    @BeforeTest
-    protected void setUp(){
+    @BeforeClass
+    public void setUp2(){
         Driver.initDriver();
     }
 
-    @AfterTest
-    protected void tearDown(){
+    @AfterClass
+    public void tearDown2(){
         Driver.quitDriver();
     }
 }

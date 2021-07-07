@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+  <test parallel="classes" name="TestTry(failed)">
+    <classes>
+      <class name="com.steave.tests.HomePageTest">
+        <methods>
+          <include name="test3"/>
+        </methods>
+      </class> <!-- com.steave.tests.HomePageTest -->
+      <class name="com.steave.tests.LoginPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="firstTest"/>
+        </methods>
+      </class> <!-- com.steave.tests.LoginPageTest -->
+    </classes>
+  </test> <!-- TestTry(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->
