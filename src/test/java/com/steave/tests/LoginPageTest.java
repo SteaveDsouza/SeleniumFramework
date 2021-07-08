@@ -9,15 +9,11 @@ import org.testng.annotations.Test;
 
 public final class LoginPageTest extends BaseForAll{
 
+    private LoginPageTest(){}
+
     @Test
-    public void firstTest(){
-        System.out.println(Thread.currentThread().getId() + " in first Test " + DriverManager.getDriver());
+    public static void firstTest(){
         DriverManager.getDriver().findElement( By.name("q") ).sendKeys( "Testing mini bytes", Keys.ENTER );
     }
 
-    @Test
-    public void firstTest2(){
-        System.out.println(Thread.currentThread().getId() + " in first Test 2" + DriverManager.getDriver());
-        DriverManager.getDriver().findElement( By.name("q") ).sendKeys( "Testng SureFire", Keys.ENTER );
-    }
 }
