@@ -93,3 +93,5 @@ W
 'test-output/old/All Test Suite/toc.html,1\9\19c42672fe0e8852dbb9faeace85fb6e662b35e5
 N
 test-output/old/Suite/toc.html,6\c\6c04c3e99e25b429d58c63700b3231ed6dca41b3
+a
+1src/test/java/com/steave/tests/LoginPageTest.java,d\3\d35f6592ef91d772f65dfc3236cf2b5117a88e78

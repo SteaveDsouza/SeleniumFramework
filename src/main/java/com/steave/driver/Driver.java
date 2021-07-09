@@ -15,7 +15,9 @@ public final class Driver{
         if (Objects.isNull( DriverManager.getDriver()) ) {
             System.setProperty( "webdriver.chrome.driver", FrameWorkConstants.getChromeDriverPath() );
             DriverManager.setDriver( new ChromeDriver() );
+            DriverManager.getDriver().manage().window().maximize();
             DriverManager.getDriver().get( ReadPropertyFile.get("url") );
+
         }
     }
 
@@ -25,4 +27,5 @@ public final class Driver{
             DriverManager.unload();
         }
     }
+
 }

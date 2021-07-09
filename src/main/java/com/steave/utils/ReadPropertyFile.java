@@ -21,7 +21,7 @@ public final class ReadPropertyFile{
         try {
             fileValue = new FileInputStream( FrameWorkConstants.getConfigPath() );
             property.load( fileValue );
-            property.forEach( (key, value) -> CONFIGMAP.put( String.valueOf( key ), String.valueOf( value ) ) );
+            property.forEach( (key, value) -> CONFIGMAP.put( String.valueOf( key ), String.valueOf( value ).trim() ) );
             fileValue.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();

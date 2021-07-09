@@ -9,9 +9,7 @@ public class BaseForAll{
     protected BaseForAll(){}
 
     @BeforeMethod
-    protected void setUp2() throws Exception{
-        Driver.initDriver();
-    }
+    protected void setUp2() throws Exception{ Driver.initDriver(); }
 
     @AfterMethod
     protected void tearDown2(){

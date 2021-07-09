@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
   <test thread-count="5" name="TestTry" parallel="methods">
     <classes>
-      <class name="com.steave.tests.HomePageTest"/>
+      <class name="com.steave.tests.OrangeHRMTests"/>
     </classes>
   </test>
 </suite>
