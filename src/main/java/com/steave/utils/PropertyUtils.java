@@ -1,6 +1,7 @@
 package com.steave.utils;
 
 import com.steave.constants.FrameWorkConstants;
+import com.steave.enums.ConfigProperties;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,9 +11,9 @@ import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
-public final class ReadPropertyFile{
+public final class PropertyUtils{
 
-    private ReadPropertyFile(){}
+    private PropertyUtils(){}
     private static Properties  property = new Properties();
     private static Map<String,String> CONFIGMAP = new ConcurrentHashMap<>();
 
@@ -30,11 +31,8 @@ public final class ReadPropertyFile{
         }
     }
 
-    public static String get(String key) throws Exception{
-        if(Objects.isNull( key ) || Objects.isNull( CONFIGMAP.get( key ) )){
-            throw new Exception(" Property name " + key + " was not found in the config.properties file");
-        }
-        return CONFIGMAP.get( key );
+    public static String get(ConfigProperties kkk){
+        return CONFIGMAP.get( kkk.name().toLowerCase()  );
     }
 
 }

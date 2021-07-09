@@ -1,7 +1,8 @@
 package com.steave.driver;
 
 import com.steave.constants.FrameWorkConstants;
-import com.steave.utils.ReadPropertyFile;
+import com.steave.enums.ConfigProperties;
+import com.steave.utils.PropertyUtils;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Objects;
@@ -16,7 +17,7 @@ public final class Driver{
             System.setProperty( "webdriver.chrome.driver", FrameWorkConstants.getChromeDriverPath() );
             DriverManager.setDriver( new ChromeDriver() );
             DriverManager.getDriver().manage().window().maximize();
-            DriverManager.getDriver().get( ReadPropertyFile.get("url") );
+            DriverManager.getDriver().get( PropertyUtils.get( ConfigProperties.URL) );
 
         }
     }

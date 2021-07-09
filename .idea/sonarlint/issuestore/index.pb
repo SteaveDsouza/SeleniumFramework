@@ -2,9 +2,6 @@
 :
 
 .classpath,3\5\354079a72b91a4280407c16a36f47d1986fd85a5
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 8
 .project,f\8\f8b41ce76d7b80d2b47e91b5f92c15f00eccf187
 [
@@ -93,5 +90,10 @@ W
 'test-output/old/All Test Suite/toc.html,1\9\19c42672fe0e8852dbb9faeace85fb6e662b35e5
 N
 test-output/old/Suite/toc.html,6\c\6c04c3e99e25b429d58c63700b3231ed6dca41b3
-a
-1src/test/java/com/steave/tests/LoginPageTest.java,d\3\d35f6592ef91d772f65dfc3236cf2b5117a88e78
+b
+2src/main/java/com/steave/driver/DriverManager.java,9\5\955b9714aad6714d9327d48a38d0447d08075bc1
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+:
+
+testng.xml,5\2\522a7a4e21649af06297e31a9e33f13bb4fd3022
