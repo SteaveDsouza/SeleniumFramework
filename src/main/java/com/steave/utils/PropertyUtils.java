@@ -4,7 +4,6 @@ import com.steave.constants.FrameWorkConstants;
 import com.steave.enums.ConfigProperties;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Objects;
@@ -24,14 +23,15 @@ public final class PropertyUtils{
             property.load( fileValue );
             property.forEach( (key, value) -> CONFIGMAP.put( String.valueOf( key ), String.valueOf( value ).trim() ) );
             fileValue.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static String get(ConfigProperties kkk){
+    public static String get(ConfigProperties kkk) throws Exception{
+        if(Objects.isNull( CONFIGMAP.get( kkk.toString().toLowerCase() ) )){
+            throw new Exception("Property name " + kkk.toString().toLowerCase() + " is not found. Please check config.properties file");
+        }
         return CONFIGMAP.get( kkk.name().toLowerCase()  );
     }
 

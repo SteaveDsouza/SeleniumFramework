@@ -10,7 +10,7 @@ public final class OrangeLoginPage extends BasePage{
     private final By btnLogin = By.xpath( "//input[@id='btnLogin' and @value='LOGIN']" );
 
     public OrangeLoginPage enterUsername(String username){
-       sendKeys( textboxUsername, username, WaitStrategy.PRESENCE );
+       sendKeys( textboxUsername, username , WaitStrategy.PRESENCE );
         return this;
     }
 

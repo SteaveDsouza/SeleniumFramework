@@ -13,19 +13,11 @@ public class ExplicitWaitFactory{
     private ExplicitWaitFactory(){}
 
     public static WebElement performExplicitWait(WaitStrategy strategy , By value){
-        if(strategy == WaitStrategy.CLICKABLE){
-           return new WebDriverWait( DriverManager.getDriver(), FrameWorkConstants.getExplicitWait() ).until( ExpectedConditions.elementToBeClickable( value ) );
-        }
-        else if(strategy == WaitStrategy.PRESENCE){
-            return new WebDriverWait( DriverManager.getDriver(), FrameWorkConstants.getExplicitWait() ).until( ExpectedConditions.presenceOfElementLocated( value ) );
-        }
-        else if(strategy == WaitStrategy.VISIBLE){
-           return new WebDriverWait( DriverManager.getDriver(), FrameWorkConstants.getExplicitWait() ).until( ExpectedConditions.visibilityOfElementLocated( value ) );
-        }
-        else if(strategy == WaitStrategy.NONE){
-            return DriverManager.getDriver().findElement(value);
-        }else{
-            return null;
-        }
+        return switch (strategy) {
+            case CLICKABLE -> new WebDriverWait( DriverManager.getDriver(), FrameWorkConstants.getExplicitWait() ).until( ExpectedConditions.elementToBeClickable( value ) );
+            case PRESENCE -> new WebDriverWait( DriverManager.getDriver(), FrameWorkConstants.getExplicitWait() ).until( ExpectedConditions.presenceOfElementLocated( value ) );
+            case VISIBLE -> new WebDriverWait( DriverManager.getDriver(), FrameWorkConstants.getExplicitWait() ).until( ExpectedConditions.visibilityOfElementLocated( value ) );
+            case NONE -> DriverManager.getDriver().findElement( value );
+        };
     }
 }

@@ -90,10 +90,21 @@ W
 'test-output/old/All Test Suite/toc.html,1\9\19c42672fe0e8852dbb9faeace85fb6e662b35e5
 N
 test-output/old/Suite/toc.html,6\c\6c04c3e99e25b429d58c63700b3231ed6dca41b3
-b
-2src/main/java/com/steave/driver/DriverManager.java,9\5\955b9714aad6714d9327d48a38d0447d08075bc1
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 :
 
 testng.xml,5\2\522a7a4e21649af06297e31a9e33f13bb4fd3022
+a
+1src/test/java/com/steave/tests/LoginPageTest.java,d\3\d35f6592ef91d772f65dfc3236cf2b5117a88e78
+`
+0src/test/java/com/steave/tests/HomePageTest.java,1\7\17d9b31f03659f3fb6df372c7b7b7df498943916
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+d
+4src/main/java/com/steave/enums/ConfigProperties.java,a\f\af0e5eeae8db09d381855625a128fc47a2df0159
+b
+2src/main/java/com/steave/driver/DriverManager.java,9\5\955b9714aad6714d9327d48a38d0447d08075bc1
+j
+:src/main/java/com/steave/constants/FrameWorkConstants.java,5\6\56f9df784b2c342c0e1481c74e52fa079426c1c5
