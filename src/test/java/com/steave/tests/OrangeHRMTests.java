@@ -1,9 +1,11 @@
 package com.steave.tests;
 
+import com.steave.dataprovider.LoginData;
 import com.steave.pages.OrangeLoginPage;
 import org.assertj.core.api.Assertions;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.util.Map;
 
 public class OrangeHRMTests extends BaseForAll{
 
@@ -11,23 +13,17 @@ public class OrangeHRMTests extends BaseForAll{
 
     OrangeLoginPage loginPage = new OrangeLoginPage();
 
-    @Test(dataProvider = "getData")
-    public void loginLogoutTest(String username , String password , String expectedTitle){
-        String title = loginPage.enterUsername( username )
-                        .enterPassword( password )
+    @Test(dataProvider = "Logindata",dataProviderClass = LoginData.class)
+    public void loginLogoutTest(Map<String,String> map){
+        String title = loginPage.enterUsername( map.get( "Username" ) )
+                        .enterPassword( map.get( "Password" ) )
                         .submitForm()
                         .logoutFromApp().getPageTitle();
 
         Assertions.assertThat( title )
-                .containsIgnoringCase( expectedTitle )
+                .containsIgnoringCase( map.get( "ExpectedTitle" ) )
                 .isNotNull();
     }
 
-    @DataProvider
-    public Object[][] getData(){
-        return new Object[][]{
-                {"Admin" , "admin123","orangehrm"},
-                {"Admin" , "admin123", "orangehrm"},
-        };
-    }
+
 }
