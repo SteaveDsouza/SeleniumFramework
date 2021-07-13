@@ -1,6 +1,7 @@
 package com.steave.pages;
 
 import com.steave.enums.WaitStrategy;
+import com.steave.reports.ExtentManager;
 import org.openqa.selenium.By;
 
 public final class OrangeHomePage extends BasePage{
@@ -12,7 +13,9 @@ public final class OrangeHomePage extends BasePage{
 
     public OrangeLoginPage logoutFromApp(){
         click( linkWelcome, WaitStrategy.CLICKABLE );
+        ExtentManager.getExtTest().pass( "Welcome Link Clicked" );
         click( linkLogout, WaitStrategy.CLICKABLE );
+        ExtentManager.getExtTest().pass( "Logout Link Clicked" );
         return new OrangeLoginPage();
     }
 }

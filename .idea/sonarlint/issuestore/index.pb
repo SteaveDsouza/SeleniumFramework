@@ -95,12 +95,8 @@ N
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 d
 4src/main/java/com/steave/enums/ConfigProperties.java,a\f\af0e5eeae8db09d381855625a128fc47a2df0159
-b
-2src/main/java/com/steave/driver/DriverManager.java,9\5\955b9714aad6714d9327d48a38d0447d08075bc1
 `
 0src/main/java/com/steave/enums/WaitStrategy.java,f\b\fb2a941c3b765c02c2e4a1eb347bf42e7f9b0665
-[
-+src/main/java/com/steave/driver/Driver.java,8\c\8c76eb637d48a37312fe9484b8e7cb28e81f372c
 k
 ;src/main/java/com/steave/factories/ExplicitWaitFactory.java,6\6\66cd34bcf3dfd7ae7d4755f772acc5c2cd0248d7
 \
