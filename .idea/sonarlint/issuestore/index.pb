@@ -93,11 +93,8 @@ N
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-d
-4src/main/java/com/steave/enums/ConfigProperties.java,a\f\af0e5eeae8db09d381855625a128fc47a2df0159
-`
-0src/main/java/com/steave/enums/WaitStrategy.java,f\b\fb2a941c3b765c02c2e4a1eb347bf42e7f9b0665
-k
-;src/main/java/com/steave/factories/ExplicitWaitFactory.java,6\6\66cd34bcf3dfd7ae7d4755f772acc5c2cd0248d7
-\
-,src/main/java/com/steave/pages/BasePage.java,b\4\b4cd79809a7b5f87d08fc151e3a0ce342dd93345
+:
+
+index.html,f\6\f6013a00b362253c64368d6eebc50ea2131754e2
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec

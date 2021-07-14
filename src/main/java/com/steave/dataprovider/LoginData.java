@@ -14,7 +14,7 @@ public class LoginData{
     private static final String SHEETNAME = "login";
     private static Object[] dataFromExcel;
 
-    @DataProvider(name = "Logindata",parallel = true)
+    @DataProvider(name = "Logindata", parallel = true)
     public static Object[] getData(){
         try {
             dataFromExcel = ExcelDataUtils.getExcelData( LOGINDATAPATH, SHEETNAME );

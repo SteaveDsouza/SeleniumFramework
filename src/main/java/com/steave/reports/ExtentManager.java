@@ -8,19 +8,19 @@ public class ExtentManager{
 
     private ExtentManager(){}
 
-    public static ThreadLocal<ExtentTest> extTest = new ThreadLocal<>();
+    private static final ThreadLocal<ExtentTest> extTest = new ThreadLocal<>();
 
-    public static ExtentTest getExtTest() {
+    static ExtentTest getExtTest() {
         return extTest.get();
     }
 
-    public static void setExtTest(ExtentTest test) {
+    static void setExtTest(ExtentTest test) {
         if (Objects.nonNull( test)) {
             extTest.set( test);
         }
     }
 
-    public static void unload() {
+    static void unload() {
         extTest.remove();
     }
 }
