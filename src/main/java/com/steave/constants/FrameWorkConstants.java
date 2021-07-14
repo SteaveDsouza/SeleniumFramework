@@ -11,7 +11,7 @@ public class FrameWorkConstants{
     private static final String RESOURCESPATH = System.getProperty( "user.dir" ) + "/src/test/resources";
     private static final String CHROMEDRIVERPATH = RESOURCESPATH +  "/Executables/chromedriver.exe";
     private static final String CONFIGPATH = RESOURCESPATH + "/Config/config.properties";
-    private static final String LOGINDATAPATH = RESOURCESPATH + "/Data/LoginData.xlsx";
+    private static final String EXCELDATAPATH = RESOURCESPATH + "/Data/Data.xlsx";
     private static final String EXTENTREPORTPATH = System.getProperty( "user.dir" ) + "/extent-test-output/";
     public static String EXTENTREPORTNAME = "";
 
@@ -22,7 +22,7 @@ public class FrameWorkConstants{
     }
     public static String getConfigPath() { return CONFIGPATH; }
     public static int getExplicitWait(){return EXPLICITWAIT;}
-    public static String getLogindatapath() {return  LOGINDATAPATH;}
+    public static String getExceldatapath() {return EXCELDATAPATH;}
 
     public static String getExtentReportPath() throws Exception{
         if(EXTENTREPORTNAME.isEmpty()){

@@ -46,6 +46,8 @@ public class ListenerClass implements ITestListener, ISuiteListener{
     public void onTestFailure(ITestResult result){
         try {
             ExtentLogger.fail( result.getMethod().getMethodName() + " is failed",true );
+            ExtentLogger.fail( result.getThrowable().toString() );
+           // ExtentLogger.fail( Arrays.toString( result.getThrowable().getStackTrace() ) );
         } catch (Exception e) {
             e.printStackTrace();
         }
