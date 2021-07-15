@@ -117,3 +117,13 @@ b
 2src/main/java/com/steave/pages/OrangeHomePage.java,f\5\f59a67b16bed116ed5df74d756c16919c5f16c8b
 c
 3src/main/java/com/steave/pages/OrangeLoginPage.java,b\1\b1a8c80de6c8b3d8972631208c971c5c63d7e1e8
+b
+2src/main/java/com/steave/driver/DriverManager.java,9\5\955b9714aad6714d9327d48a38d0447d08075bc1
+b
+2src/main/java/com/steave/reports/ExtentLogger.java,0\2\0255f5638daf68d2a1bac8ba82b7095c3f237f2e
+j
+:src/main/java/com/steave/constants/FrameWorkConstants.java,5\6\56f9df784b2c342c0e1481c74e52fa079426c1c5
+e
+5src/main/java/com/steave/listeners/ListenerClass.java,e\e\ee1d952c09a5e37ced02628071db0b4ab17877b9
+c
+3src/main/java/com/steave/utils/ScreenShotUtils.java,d\f\df4bc6be7fd9e908b46f18a4bd327c86de543787

@@ -15,15 +15,16 @@ public class MethodInterceptor implements IMethodInterceptor{
     @Override
     public List<IMethodInstance> intercept(List<IMethodInstance> methods, ITestContext context){
 
-        List<Map<String,String>> listOfTests = ExcelDataUtils.getExcelDataForRunManager( FrameWorkConstants.getExceldatapath(), "runmanager" );
+        Map<String,String>[] listOfTests = ExcelDataUtils.getExcelData( FrameWorkConstants.getExceldatapath(), "runmanager" );
+
         List<IMethodInstance> result = new ArrayList<>();
 
         for (IMethodInstance method : methods) {
             for (Map<String, String> listOfTest : listOfTests) {
                 if (method.getMethod().getMethodName().equalsIgnoreCase( listOfTest.get( "testname" ) ) && listOfTest.get( "execute" ).equalsIgnoreCase( "yes" ) ) {
-                        method.getMethod().setInvocationCount( Integer.parseInt( listOfTest.get( "count" ) ) );
-                        method.getMethod().setPriority( Integer.parseInt( listOfTest.get( "priority" ) ) );
-                        result.add( method );
+                    method.getMethod().setInvocationCount( Integer.parseInt( listOfTest.get( "count" ) ) );
+                    method.getMethod().setPriority( Integer.parseInt( listOfTest.get( "priority" ) ) );
+                    result.add( method );
                 }
             }
         }

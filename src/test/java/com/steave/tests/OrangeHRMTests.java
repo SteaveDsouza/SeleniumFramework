@@ -26,5 +26,18 @@ public final class  OrangeHRMTests extends BaseForAll{
                 .isNotNull();
     }
 
+    @Test(dataProvider = "Logindata",dataProviderClass = LoginData.class)
+    public void trialTest(Map<String,String> map) throws Exception{
+
+        String title = loginPage.enterUsername( map.get( "Username" ) )
+                .enterPassword( map.get( "Password" ) )
+                .submitForm()
+                .logoutFromApp().getPageTitle();
+
+        Assertions.assertThat( title )
+                .containsIgnoringCase( map.get( "ExpectedTitle" ) )
+                .isNotNull();
+    }
+
 
 }

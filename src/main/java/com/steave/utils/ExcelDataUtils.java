@@ -6,20 +6,17 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public final class ExcelDataUtils{
 
     private ExcelDataUtils(){}
 
     
-    public static Object[] getExcelDataForDataProvider(String path , String sheetname) {
+    public static Map<String,String>[] getExcelData(String path , String sheetname) {
 
         XSSFWorkbook workbook;
-        Object[] data = null;
+        Map<String,String>[] data = null;
         FileInputStream fileStream = null;
         DataFormatter formatter;
 
@@ -29,48 +26,7 @@ public final class ExcelDataUtils{
             XSSFSheet sheet = workbook.getSheet( sheetname );
             int rownum = sheet.getLastRowNum();
             int columnnum = sheet.getRow( 0 ).getLastCellNum();
-            data = new Object[rownum];
-            Map<Object , Object> map;
-            formatter = new DataFormatter();
-
-            for (var i = 1; i <= rownum; i++) {
-                map = new HashMap<>();
-                for (var j = 0; j < columnnum; j++) {
-                    var key = formatter.formatCellValue(sheet.getRow( 0 ).getCell( j )  );
-                    var value = formatter.formatCellValue( sheet.getRow( i ).getCell( j ) );
-                    map.put( key,value );
-                }
-                data[i -1] = map;
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            try {
-                fileStream.close();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-        }
-
-
-        return data;
-    }
-
-    public static List<Map<String,String>> getExcelDataForRunManager(String path , String sheetname) {
-
-        XSSFWorkbook workbook;
-        List<Map<String,String>> data = null;
-        FileInputStream fileStream = null;
-        DataFormatter formatter;
-
-        try {
-            fileStream = new FileInputStream( path );
-            workbook = new XSSFWorkbook( fileStream);
-            XSSFSheet sheet = workbook.getSheet( sheetname );
-            int rownum = sheet.getLastRowNum();
-            int columnnum = sheet.getRow( 0 ).getLastCellNum();
-            data = new ArrayList<>();
+            data = new Map[rownum];
             Map<String , String> map;
             formatter = new DataFormatter();
 
@@ -81,7 +37,7 @@ public final class ExcelDataUtils{
                     var value = formatter.formatCellValue( sheet.getRow( i ).getCell( j ) );
                     map.put( key,value );
                 }
-                data.add( map );
+                data[i - 1] = map;
             }
 
         } catch (IOException e) {
@@ -97,5 +53,7 @@ public final class ExcelDataUtils{
 
         return data;
     }
+
+
 
 }
