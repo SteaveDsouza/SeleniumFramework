@@ -1,6 +1,7 @@
 package com.steave.tests;
 
 import com.steave.dataprovider.LoginData;
+import com.steave.listeners.RetryFailedTests;
 import com.steave.pages.OrangeLoginPage;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
@@ -13,7 +14,7 @@ public final class  OrangeHRMTests extends BaseForAll{
 
     OrangeLoginPage loginPage = new OrangeLoginPage();
 
-    @Test(dataProvider = "Logindata",dataProviderClass = LoginData.class)
+    @Test
     public void sanityLogin(Map<String,String> map) throws Exception{
 
         String title = loginPage.enterUsername( map.get( "Username" ) )
@@ -26,7 +27,7 @@ public final class  OrangeHRMTests extends BaseForAll{
                 .isNotNull();
     }
 
-    @Test(dataProvider = "Logindata",dataProviderClass = LoginData.class)
+    @Test
     public void trialTest(Map<String,String> map) throws Exception{
 
         String title = loginPage.enterUsername( map.get( "Username" ) )

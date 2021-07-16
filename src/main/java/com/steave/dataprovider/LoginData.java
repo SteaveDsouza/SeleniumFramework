@@ -10,7 +10,6 @@ import java.util.*;
 public class LoginData{
 
     private static final String LOGINDATAPATH = FrameWorkConstants.getExceldatapath();
-    private static final String SHEETNAME = "main";
 
     private static Map<String,String>[] dataFromExcel = null;
 
@@ -18,7 +17,7 @@ public class LoginData{
     public static Object[] getData(Method m){
         String testName = m.getName();
         if (Objects.isNull( dataFromExcel )) {
-            dataFromExcel = ExcelDataUtils.getExcelData( LOGINDATAPATH, SHEETNAME );
+            dataFromExcel = ExcelDataUtils.getExcelData( LOGINDATAPATH, FrameWorkConstants.getDataSheet() );
         }
         List<Map<String,String>> finalResult = new ArrayList<>();
         Arrays.stream( dataFromExcel ).forEach( map -> {
@@ -26,7 +25,6 @@ public class LoginData{
                 finalResult.add( map );
             }
         } );
-        Arrays.asList( dataFromExcel ).remove( finalResult );
         return finalResult.toArray();
     }
 }
