@@ -4,9 +4,11 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.steave.constants.FrameWorkConstants;
+import com.steave.enums.TestTagAnnotation;
 
 import java.awt.*;
 import java.io.File;
+import java.util.Arrays;
 import java.util.Objects;
 
 public final class ExtentReport{
@@ -38,6 +40,14 @@ public final class ExtentReport{
 
     public static void createTest(String testcasename){
         ExtentManager.setExtTest( extent.createTest( testcasename ) );
+    }
+
+    public static void addAuthors(String[] authors){
+        Arrays.stream( authors ).forEach( a -> ExtentManager.getExtTest().assignAuthor( a ) );
+    }
+
+    public static void addTestTags(TestTagAnnotation[] tags){
+        Arrays.stream( tags ).forEach( a -> ExtentManager.getExtTest().assignCategory( String.valueOf( a ) ) );
     }
 
 }

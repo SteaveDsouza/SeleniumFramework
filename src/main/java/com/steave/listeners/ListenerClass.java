@@ -1,6 +1,8 @@
 package com.steave.listeners;
 
+import com.steave.annotations.FrameworkAnnotations;
 import com.steave.reports.ExtentLogger;
+import com.steave.reports.ExtentManager;
 import com.steave.reports.ExtentReport;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
@@ -31,6 +33,8 @@ public class ListenerClass implements ITestListener, ISuiteListener{
     @Override
     public void onTestStart(ITestResult result){
         ExtentReport.createTest( result.getMethod().getMethodName() );
+        ExtentReport.addAuthors( result.getMethod().getConstructorOrMethod().getMethod().getAnnotation( FrameworkAnnotations.class ).authors());
+        ExtentReport.addTestTags(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation( FrameworkAnnotations.class ).testTags());
     }
 
     @Override
@@ -47,7 +51,7 @@ public class ListenerClass implements ITestListener, ISuiteListener{
         try {
             ExtentLogger.fail( result.getMethod().getMethodName() + " is failed",true );
             ExtentLogger.fail( result.getThrowable().toString() );
-           // ExtentLogger.fail( Arrays.toString( result.getThrowable().getStackTrace() ) );
+            // ExtentLogger.fail( Arrays.toString( result.getThrowable().getStackTrace() ) );
         } catch (Exception e) {
             e.printStackTrace();
         }
