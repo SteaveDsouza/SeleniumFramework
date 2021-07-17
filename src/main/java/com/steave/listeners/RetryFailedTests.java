@@ -8,7 +8,8 @@ import org.testng.ITestResult;
 
 public class RetryFailedTests implements IRetryAnalyzer{
 
-    public RetryFailedTests() throws Exception{ }
+    public RetryFailedTests(){ }
+
     private int count = 0;
     private final int retries = Integer.parseInt( PropertyUtils.get( ConfigProperties.RETRYCOUNT ) );
 

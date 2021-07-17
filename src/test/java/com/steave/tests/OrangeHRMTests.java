@@ -6,6 +6,7 @@ import com.steave.pages.OrangeLoginPage;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 
+
 import java.util.Map;
 
 public final class  OrangeHRMTests extends BaseForAll{
