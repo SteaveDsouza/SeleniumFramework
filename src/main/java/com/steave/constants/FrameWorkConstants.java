@@ -8,8 +8,6 @@ public class FrameWorkConstants{
     private FrameWorkConstants(){ }
 
     private static final String RESOURCESPATH = System.getProperty( "user.dir" ) + "/src/test/resources";
-    private static final String CHROMEDRIVERPATH = RESOURCESPATH +  "/Executables/chromedriver.exe";
-    private static final String FIREFOXDRIVERPATH = RESOURCESPATH +  "/Executables/geckodriver.exe";
     private static final String CONFIGPATH = RESOURCESPATH + "/Config/config.properties";
     private static final String EXCELDATAPATH = RESOURCESPATH + "/Data/Data.xlsx";
     private static final String EXTENTREPORTPATH = System.getProperty( "user.dir" ) + "/extent-test-output/";
@@ -18,10 +16,6 @@ public class FrameWorkConstants{
     public static String EXTENTREPORTNAME = "";
     private static final int EXPLICITWAIT = 6;
 
-    public static String getChromeDriverPath(){
-        return CHROMEDRIVERPATH;
-    }
-    public static String getFireFoxDriverPath(){ return FIREFOXDRIVERPATH; }
     public static String getConfigPath() { return CONFIGPATH; }
     public static int getExplicitWait(){return EXPLICITWAIT;}
     public static String getExceldatapath() {return EXCELDATAPATH;}

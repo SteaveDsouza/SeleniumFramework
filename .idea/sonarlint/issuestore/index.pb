@@ -93,8 +93,6 @@ N
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 k
 ;src/main/java/com/steave/factories/ExplicitWaitFactory.java,6\6\66cd34bcf3dfd7ae7d4755f772acc5c2cd0248d7
 \
@@ -105,12 +103,8 @@ c
 3src/main/java/com/steave/pages/OrangeLoginPage.java,b\1\b1a8c80de6c8b3d8972631208c971c5c63d7e1e8
 `
 0src/main/java/com/steave/enums/WaitStrategy.java,f\b\fb2a941c3b765c02c2e4a1eb347bf42e7f9b0665
-b
-2src/main/java/com/steave/driver/DriverManager.java,9\5\955b9714aad6714d9327d48a38d0447d08075bc1
 d
 4src/main/java/com/steave/enums/ConfigProperties.java,a\f\af0e5eeae8db09d381855625a128fc47a2df0159
-d
-4src/main/java/com/steave/dataprovider/LoginData.java,8\e\8e522627ebe29371ce0a96bc614ef3f17173518e
 :
 
 testng.xml,5\2\522a7a4e21649af06297e31a9e33f13bb4fd3022
@@ -118,3 +112,23 @@ testng.xml,5\2\522a7a4e21649af06297e31a9e33f13bb4fd3022
 .src/test/java/com/steave/tests/BaseForAll.java,b\c\bc916e13736ce949474e4dfb1e1a76aa94dbdff4
 m
 =src/main/java/com/steave/listeners/AnnotationTransformer.java,f\2\f24a96b7a74cdf172c5a2ed5f5f9276a7c387558
+c
+3src/main/java/com/steave/reports/ExtentManager.java,3\b\3b3701543a6c6148985a0e7dbacd6db18c779767
+n
+>src/main/java/com/steave/annotations/FrameworkAnnotations.java,6\6\66a903784a76e6bf731d5d200d2f258371f29eca
+e
+5src/main/java/com/steave/enums/TestTagAnnotation.java,a\3\a3a79b3b3d4563c697e96b874baa0776ebc3d708
+c
+3src/main/java/com/steave/utils/ScreenShotUtils.java,d\f\df4bc6be7fd9e908b46f18a4bd327c86de543787
+i
+9src/main/java/com/steave/listeners/MethodInterceptor.java,0\7\073748fa8ec6dbf25a4f3fd5f836a9fda1f07279
+o
+?src/main/java/com/steave/exceptions/ConfigPropertyNotFound.java,0\4\04abef388a09fb1a39a00d6b4eec14aa9de10291
+b
+2src/main/java/com/steave/reports/ExtentLogger.java,0\2\0255f5638daf68d2a1bac8ba82b7095c3f237f2e
+k
+;src/main/java/com/steave/exceptions/FrameworkException.java,7\2\721f3ab5c74cd2ccf11f402efce1fdb21fd688e6
+m
+=src/main/java/com/steave/exceptions/InvalidPathException.java,6\0\6051b2325dd681f64e67902ae42d9a529ffde3f3
+b
+2src/test/java/com/steave/tests/OrangeHRMTests.java,2\2\22efd38c8d9dc77a08b932e92f4f375f419f2d05

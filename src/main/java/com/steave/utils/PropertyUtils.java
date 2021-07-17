@@ -21,8 +21,9 @@ public final class PropertyUtils{
         try(FileInputStream fileValue = new FileInputStream( FrameWorkConstants.getConfigPath() )) {
             property.load( fileValue );
             property.forEach( (key, value) -> CONFIGMAP.put( String.valueOf( key ), String.valueOf( value ).trim() ) );
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch ( IOException e) {
+           e.printStackTrace();
+           System.exit( 0 );
         }
     }
 

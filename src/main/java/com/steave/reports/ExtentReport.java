@@ -8,6 +8,7 @@ import com.steave.enums.TestTagAnnotation;
 
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -33,9 +34,13 @@ public final class ExtentReport{
     public static void flushReports() throws Exception{
         if (Objects.nonNull( extent )) {
             extent.flush();
-            ExtentManager.unload();
         }
-        Desktop.getDesktop().browse( new File( FrameWorkConstants.getExtentReportPath()).toURI() );
+        ExtentManager.unload();
+        try {
+            Desktop.getDesktop().browse( new File( FrameWorkConstants.getExtentReportPath()).toURI() );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void createTest(String testcasename){

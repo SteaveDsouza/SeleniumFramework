@@ -3,6 +3,7 @@ package com.steave.driver;
 import com.steave.constants.FrameWorkConstants;
 import com.steave.enums.ConfigProperties;
 import com.steave.utils.PropertyUtils;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -16,10 +17,10 @@ public final class Driver{
 
         if (Objects.isNull( DriverManager.getDriver()) ) {
             if(browser.equalsIgnoreCase( "chrome" )){
-                System.setProperty( "webdriver.chrome.driver", FrameWorkConstants.getChromeDriverPath() );
+                WebDriverManager.chromedriver().setup();
                 DriverManager.setDriver( new ChromeDriver() );
             }else if(browser.equalsIgnoreCase( "firefox" )){
-                System.setProperty( "webdriver.gecko.driver", FrameWorkConstants.getFireFoxDriverPath() );
+                WebDriverManager.firefoxdriver().setup();
                 DriverManager.setDriver( new FirefoxDriver() );
             }
             DriverManager.getDriver().manage().window().maximize();
