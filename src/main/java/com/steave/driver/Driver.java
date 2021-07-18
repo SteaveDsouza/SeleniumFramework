@@ -1,6 +1,5 @@
 package com.steave.driver;
 
-import com.steave.constants.FrameWorkConstants;
 import com.steave.enums.ConfigProperties;
 import com.steave.utils.PropertyUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
