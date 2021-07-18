@@ -1,7 +1,5 @@
 package com.steave.driver;
 
-import com.steave.enums.ConfigProperties;
-import com.steave.utils.PropertyUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -23,7 +21,7 @@ public final class Driver{
                 DriverManager.setDriver( new FirefoxDriver() );
             }
             DriverManager.getDriver().manage().window().maximize();
-            DriverManager.getDriver().get( PropertyUtils.get( ConfigProperties.URL) );
+            //DriverManager.getDriver().get( PropertyUtils.get( ConfigProperties.URL) );
 
         }
     }

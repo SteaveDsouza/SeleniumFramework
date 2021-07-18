@@ -34,4 +34,10 @@ public final class PropertyUtils{
         return CONFIGMAP.get( kkk.name().toLowerCase()  );
     }
 
+    public static String getReportConfigPath(){
+        String reportConfigPath = CONFIGMAP.get( "extentconfigpath" );
+        if(reportConfigPath!= null) return reportConfigPath;
+        else throw new ConfigPropertyNotFound("Report Config Path not specified in the Configuration.properties file for the Key:reportConfigPath");
+    }
+
 }

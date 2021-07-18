@@ -1,6 +1,5 @@
 package com.steave.utils;
 
-import com.steave.exceptions.FrameworkException;
 import com.steave.exceptions.InvalidPathException;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
