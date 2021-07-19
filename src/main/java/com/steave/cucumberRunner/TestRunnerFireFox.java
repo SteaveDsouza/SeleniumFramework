@@ -20,21 +20,20 @@ import java.io.IOException;
         tags = {"@Sanity_Test"}
         )
 
-public class TestRunner {
+public class TestRunnerFireFox{
     private TestNGCucumberRunner testNGCucumberRunner;
 
     @BeforeClass(alwaysRun = true)
     public void setUpClass(){
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
-        Driver.initDriver( "chrome" );
-
+        Driver.initDriver( "firefox" );
     }
 
 
     @Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "features")
     public void feature(CucumberFeatureWrapper cucumberFeature) {
         testNGCucumberRunner.runCucumber(cucumberFeature.getCucumberFeature());
-        Reporter.assignAuthor( "Chrome" );
+        Reporter.assignAuthor( "firefox" );
     }
 
     @DataProvider

@@ -34,6 +34,7 @@
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
 						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 		</ul>
 
@@ -47,7 +48,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Jul 18, 2021 07:34:14 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Jul 19, 2021 12:46:21 PM</span>
 				</a>
 			</li>
 			<li>
@@ -73,6 +74,7 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -134,10 +136,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>2</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -149,10 +151,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>2</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -164,10 +166,10 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='75%'><span class='strong'>6</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='25%'>2</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -181,18 +183,18 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Orange HRM Sanity Test</span>
-						<span class='test-time'>Jul 18, 2021 07:34:15 PM</span>
-						<span class='test-status right pass'>pass</span>
+						<span class='test-time'>Jul 19, 2021 12:46:21 PM</span>
+						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
-<div class='scenario node' test-id='2' status='pass'>
+<div class='scenario node' test-id='2' status='fail'>
 	<div class='category-list'>
 		<span class='category label white-text'>@loginLogoutTest</span>
 	</div>
-	<span class='duration right label'>0h 0m 2s+696ms</span>
+	<span class='duration right label'>0h 0m 2s+944ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
 		<span class="desc-text">End to End Login and Logout</span>
@@ -222,12 +224,83 @@
 				<div class='pre'>passed</div>
 			
 		</li>
-		<li test-id='6' class='node then pass' status='pass'>
+		<li test-id='9' class='node then fail' status='fail'>
 			
 			<b>Then</b>
 			
 			<span class="bdd-step-name">Then I must be navigated back to Login page</span>
+				<div class='pre'><pre>java.lang.AssertionError: 
+Expecting actual:
+  "OrangeHRM"
+to contain:
+  "nook"
+ (ignoring case)
+	at com.steave.stepdefs.LoginStepDef.i_must_be_navigated_back_to_Login_page(LoginStepDef.java:34)
+	at ✽.Then I must be navigated back to Login page(Sanity.feature:9)
+</pre></div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>Orange HRM Sanity Test</span>
+						<span class='test-time'>Jul 19, 2021 12:46:23 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='7' status='fail'>
+	<div class='category-list'>
+		<span class='category label white-text'>@loginLogoutTest</span>
+	</div>
+	<span class='duration right label'>0h 0m 3s+445ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">End to End Login and Logout</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='8' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I navigate to Orange HRM website</span>
 				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='10' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I submit my username and Password</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='11' class='node and pass' status='pass'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I logout from the app</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='12' class='node then fail' status='fail'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I must be navigated back to Login page</span>
+				<div class='pre'><pre>java.lang.AssertionError: 
+Expecting actual:
+  "OrangeHRM"
+to contain:
+  "nook"
+ (ignoring case)
+	at com.steave.stepdefs.LoginStepDef.i_must_be_navigated_back_to_Login_page(LoginStepDef.java:34)
+	at ✽.Then I must be navigated back to Login page(Sanity.feature:9)
+</pre></div>
 			
 		</li>
 	</ul>
@@ -288,13 +361,13 @@
 					<div class='category-heading'>
 						<span class='category-name'>@Sanity_Test</span>
 						<span class='category-status right'>
-							<span class='label pass'>1</span>
+							<span class='label fail'>2</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 1</span>
 							
+							<span class='label red lighten-1 white-text'>Failed: 2</span>
 							
 						</div>
 					
@@ -309,9 +382,14 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jul 18, 2021 07:34:15 PM</td>
+										<td>Jul 19, 2021 12:46:21 PM</td>
 										<td class='linked' test-id='1'>Orange HRM Sanity Test</td>
-										<td><span class='test-status pass'>pass</span></td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jul 19, 2021 12:46:23 PM</td>
+										<td class='linked' test-id='6'>Orange HRM Sanity Test</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -322,13 +400,13 @@
 					<div class='category-heading'>
 						<span class='category-name'>@loginLogoutTest</span>
 						<span class='category-status right'>
-							<span class='label pass'>1</span>
+							<span class='label fail'>2</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 1</span>
 							
+							<span class='label red lighten-1 white-text'>Failed: 2</span>
 							
 						</div>
 					
@@ -343,9 +421,14 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jul 18, 2021 07:34:15 PM</td>
+										<td>Jul 19, 2021 12:46:21 PM</td>
 										<td class='linked' test-id='2'>Orange HRM Sanity Test.End to End Login and Logout</td>
-										<td><span class='test-status pass'>pass</span></td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jul 19, 2021 12:46:23 PM</td>
+										<td class='linked' test-id='7'>Orange HRM Sanity Test.End to End Login and Logout</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -364,6 +447,88 @@
 	</div>
 </div>
 <!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>java.lang.AssertionError</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>2</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Jul 19, 2021 12:46:23 PM</td>
+                                                        <td class='linked' test-id='9'>Orange HRM Sanity Test.End to End Login and Logout.Then I must be navigated back to Login page</td>
+                                                        <td><pre><pre>java.lang.AssertionError: 
+Expecting actual:
+  "OrangeHRM"
+to contain:
+  "nook"
+ (ignoring case)
+	at com.steave.stepdefs.LoginStepDef.i_must_be_navigated_back_to_Login_page(LoginStepDef.java:34)
+	at ✽.Then I must be navigated back to Login page(Sanity.feature:9)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jul 19, 2021 12:46:26 PM</td>
+                                                        <td class='linked' test-id='12'>Orange HRM Sanity Test.End to End Login and Logout.Then I must be navigated back to Login page</td>
+                                                        <td><pre><pre>java.lang.AssertionError: 
+Expecting actual:
+  "OrangeHRM"
+to contain:
+  "nook"
+ (ignoring case)
+	at com.steave.stepdefs.LoginStepDef.i_must_be_navigated_back_to_Login_page(LoginStepDef.java:34)
+	at ✽.Then I must be navigated back to Login page(Sanity.feature:9)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
 <!-- exception view -->
 <div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
@@ -373,37 +538,37 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Features
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>4</div>
+					<div class='panel-lead'>8</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Jul 18, 2021 07:34:14 PM</div>
+					<div class='panel-lead'>Jul 19, 2021 12:46:21 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Jul 18, 2021 07:34:17 PM</div>
+			 		<div class='panel-lead'>Jul 19, 2021 12:46:26 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>2,763ms</div>
+					<div class='panel-lead'>5,535ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -419,14 +584,14 @@
 						</tr>
 						<tr>
 							<td>@Sanity_Test</td>
-							<td>1</td>
 							<td>0</td>
+							<td>2</td>
 							<td>0</td>
 						</tr>
 						<tr>
 							<td>@loginLogoutTest</td>
-							<td>1</td>
 							<td>0</td>
+							<td>2</td>
 							<td>0</td>
 						</tr>
 					</table>
@@ -442,31 +607,31 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 1,
-				failParent: 0,
+				passParent: 0,
+				failParent: 2,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
+				exceptionsParent: 2,
 				
-				passChild: 1,
-				failChild: 0,
+				passChild: 0,
+				failChild: 2,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 0,
+				exceptionsChild: 2,
 				
-				passGrandChild: 4,
-				failGrandChild: 0,
+				passGrandChild: 6,
+				failGrandChild: 2,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
 				skipGrandChild: 0,
 				infoGrandChild: 0,
-				exceptionsGrandChild: 0,
+				exceptionsGrandChild: 2,
 			};
 		</script>
 		

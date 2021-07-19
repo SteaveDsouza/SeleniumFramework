@@ -31,7 +31,7 @@ public class LoginStepDef {
 
     @Then("^I must be navigated back to Login page$")
     public void i_must_be_navigated_back_to_Login_page() throws Throwable {
-        Assertions.assertThat( loginPage.getPageTitle() ).isNotNull().containsIgnoringCase( "orangehrm" );
+        Assertions.assertThat( loginPage.getPageTitle() ).isNotNull().containsIgnoringCase( "nook" );
     }
 
 }
