@@ -1,12 +1,11 @@
 package com.steave.driver;
 
-import com.steave.constants.FrameWorkConstants;
 import com.steave.enums.ConfigProperties;
+import com.steave.exceptions.BrowserInvocationFailed;
+import com.steave.factories.DriverFactory;
 import com.steave.utils.PropertyUtils;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.net.MalformedURLException;
 import java.util.Objects;
 
 public final class Driver{
@@ -16,16 +15,13 @@ public final class Driver{
     public static void initDriver(String browser) {
 
         if (Objects.isNull( DriverManager.getDriver()) ) {
-            if(browser.equalsIgnoreCase( "chrome" )){
-                WebDriverManager.chromedriver().setup();
-                DriverManager.setDriver( new ChromeDriver() );
-            }else if(browser.equalsIgnoreCase( "firefox" )){
-                WebDriverManager.firefoxdriver().setup();
-                DriverManager.setDriver( new FirefoxDriver() );
+            try {
+                DriverManager.setDriver( DriverFactory.getDriver( browser ) );
+                DriverManager.getDriver() .manage().window().maximize();
+            } catch (MalformedURLException | NullPointerException e) {
+                throw new BrowserInvocationFailed( "Please validate the Capabilities in DriverFactory class, Browser invocation failed",e);
             }
-            DriverManager.getDriver().manage().window().maximize();
             DriverManager.getDriver().get( PropertyUtils.get( ConfigProperties.URL) );
-
         }
     }
 
