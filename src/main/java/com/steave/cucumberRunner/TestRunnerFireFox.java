@@ -1,9 +1,10 @@
 package com.steave.cucumberRunner;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.steave.constants.FrameWorkConstants;
 import com.steave.driver.Driver;
+import com.steave.listener.Reporter;
 import com.steave.utils.PropertyUtils;
-import com.vimalselvam.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.CucumberFeatureWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
@@ -16,24 +17,26 @@ import java.io.IOException;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"com.steave.stepdefs"},
-        plugin = { "com.vimalselvam.cucumber.listener.ExtentCucumberFormatter:extent-test-output/index.html"},
+        plugin = { "com.steave.listener.ExtentCucumberFormatter:extent-test-output/index.html"},
         tags = {"@Sanity_Test"}
         )
 
 public class TestRunnerFireFox{
     private TestNGCucumberRunner testNGCucumberRunner;
 
+    ExtentTest extent ;
+
     @BeforeClass(alwaysRun = true)
     public void setUpClass(){
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
         Driver.initDriver( "firefox" );
+
     }
 
 
     @Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "features")
     public void feature(CucumberFeatureWrapper cucumberFeature) {
         testNGCucumberRunner.runCucumber(cucumberFeature.getCucumberFeature());
-        Reporter.assignAuthor( "firefox" );
     }
 
     @DataProvider
