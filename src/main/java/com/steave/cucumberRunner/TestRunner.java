@@ -1,8 +1,10 @@
 package com.steave.cucumberRunner;
 
 import com.steave.driver.Driver;
-import com.vimalselvam.cucumber.listener.ExtentCucumberFormatter;
+import com.steave.listener.Reporter;
 import cucumber.api.CucumberOptions;
+import cucumber.api.Scenario;
+import cucumber.api.java.Before;
 import cucumber.api.testng.CucumberFeatureWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
 import org.testng.annotations.AfterClass;
@@ -19,7 +21,6 @@ import org.testng.annotations.Test;
 
 public class TestRunner {
     private TestNGCucumberRunner testNGCucumberRunner;
-    ExtentCucumberFormatter extent;
 
     @BeforeClass(alwaysRun = true)
     public void setUpClass(){
@@ -44,4 +45,5 @@ public class TestRunner {
         testNGCucumberRunner.finish();
         Driver.quitDriver();
     }
+
 }

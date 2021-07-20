@@ -155,6 +155,10 @@ public class Reporter {
         getCurrentScenario().assignAuthor(authorName);
     }
 
+    public static void assignCategory(String... category){
+        getCurrentScenario().assignCategory( category );
+    }
+
     private static ExtentTest getCurrentStep() {
         return ExtentCucumberFormatter.stepTestThreadLocal.get();
     }

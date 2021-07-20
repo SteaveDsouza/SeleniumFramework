@@ -6,6 +6,8 @@ import com.steave.driver.Driver;
 import com.steave.listener.Reporter;
 import com.steave.utils.PropertyUtils;
 import cucumber.api.CucumberOptions;
+import cucumber.api.Scenario;
+import cucumber.api.java.Before;
 import cucumber.api.testng.CucumberFeatureWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
 import org.testng.annotations.*;
@@ -30,7 +32,6 @@ public class TestRunnerFireFox{
     public void setUpClass(){
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
         Driver.initDriver( "firefox" );
-
     }
 
 
@@ -59,4 +60,5 @@ public class TestRunnerFireFox{
             e.printStackTrace();
         }
     }
+
 }
