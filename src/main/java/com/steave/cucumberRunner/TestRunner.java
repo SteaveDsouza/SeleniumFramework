@@ -47,14 +47,4 @@ public class TestRunner {
         testNGCucumberRunner.finish();
         Driver.quitDriver();
     }
-
-    @AfterSuite
-    public void finalTeardown() throws Exception{
-        Reporter.loadXMLConfig( new File( PropertyUtils.getReportConfigPath()) );
-        try {
-            Desktop.getDesktop().browse( new File( FrameWorkConstants.getExtentReportPath()).toURI() );
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
