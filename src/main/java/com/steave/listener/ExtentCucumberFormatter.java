@@ -205,6 +205,7 @@ public class ExtentCucumberFormatter implements Reporter, Formatter {
         for (Tag tag : scenario.getTags()) {
             scenarioNode.assignCategory(tag.getName());
         }
+
         scenarioThreadLocal.set(scenarioNode);
     }
 

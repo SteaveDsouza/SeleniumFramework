@@ -5,12 +5,14 @@
   <test name="Login and Update Profile Test Chrome" enabled="true">
     <classes>
       <class name="com.steave.cucumberRunner.TestRunner"/>
+      <parameter name="browser" value="chrome"/>
     </classes>
   </test>
 
   <test name="Login and Update Profile Test Firefox" enabled="true" >
     <classes>
-      <class name="com.steave.cucumberRunner.TestRunnerFireFox"/>
+      <class name="com.steave.cucumberRunner.TestRunner"/>
+      <parameter name="browser" value="firefox"/>
     </classes>
   </test>
 
