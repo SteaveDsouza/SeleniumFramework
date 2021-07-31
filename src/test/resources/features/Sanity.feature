@@ -1,5 +1,4 @@
-@Sanity_Test
-  Feature: Orange HRM Sanity Test
+ Feature: Orange HRM Sanity Test
 
     @loginLogoutTest
     Scenario: End to End Login and Logout

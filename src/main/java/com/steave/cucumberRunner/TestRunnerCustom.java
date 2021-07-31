@@ -1,5 +1,6 @@
 package com.steave.cucumberRunner;
 
+
 import com.steave.constants.FrameWorkConstants;
 import com.steave.driver.Driver;
 import com.steave.listener.Reporter;
@@ -13,7 +14,10 @@ import org.testng.annotations.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 @CucumberOptions(
         features = "src/test/resources/features",
@@ -22,21 +26,15 @@ import java.util.Arrays;
         tags = {"@loginLogoutTest"}
         )
 
-public class TestRunner {
-
+public class TestRunnerCustom{
     private TestNGCucumberRunner testNGCucumberRunner;
-
-    @BeforeSuite(alwaysRun = true)
-    public void tryingStuff(ITestContext context){
-        System.out.println("In before Suite");
-        Arrays.stream( context.getIncludedGroups() ).forEach( System.out::println );
-    }
+    private List<String> includeTags = new ArrayList<>();
 
     @Parameters({"browser"})
     @BeforeClass(alwaysRun = true)
-    public void setUpClass(String browser ){
+    public void setUpClass(String browser){
+        System.out.println("In before class");
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
-        System.out.println("In Before Class");
         Driver.initDriver( browser );
     }
 
@@ -44,14 +42,12 @@ public class TestRunner {
 
     @Test(groups = "cucumber", description = "Runs Cucumber Feature", dataProvider = "features")
     public void feature(CucumberFeatureWrapper cucumberFeature) {
-        System.out.println("In Test Class");
+        System.out.println("in Tests");
         testNGCucumberRunner.runCucumber(cucumberFeature.getCucumberFeature());
-
     }
 
     @DataProvider
     public Object[][] features() {
-        System.out.println("In Data Provider");
         return testNGCucumberRunner.provideFeatures();
     }
 
@@ -59,7 +55,7 @@ public class TestRunner {
     @Parameters({"browser"})
     @AfterClass(alwaysRun = true)
     public void tearDownClass(String browser){
-        System.out.println("In after class");
+        System.out.println("in After Tests");
         if(browser.equalsIgnoreCase( "chrome" )){
             Reporter.assignCategory( "@Chrome" );
         }else if(browser.equalsIgnoreCase( "firefox" )){
@@ -70,9 +66,9 @@ public class TestRunner {
     }
 
 
-    @AfterSuite(alwaysRun=true)
+    @AfterSuite
     public void finalTeardown() throws Exception{
-        System.out.println("In after Suite");
+        System.out.println("in After Suite");
         Reporter.loadXMLConfig( new File( PropertyUtils.getReportConfigPath()) );
         try {
             Desktop.getDesktop().browse( new File( FrameWorkConstants.getExtentReportPath()).toURI() );
@@ -84,8 +80,11 @@ public class TestRunner {
     @Factory
     public Object[] getTestsFromFile(ITestContext context){
         System.out.println( " in Factory");
+        if( Objects.nonNull(context)){
+            this.includeTags = Arrays.asList( context.getIncludedGroups() );
+            includeTags.forEach( System.out::println );
+        }
         return null;
     }
-
 
 }
